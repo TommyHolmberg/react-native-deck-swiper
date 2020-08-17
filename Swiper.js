@@ -364,6 +364,7 @@ class Swiper extends Component {
       friction: this.props.topCardResetAnimationFriction,
       tension: this.props.topCardResetAnimationTension,
       useNativeDriver: true,
+      useNativeDriver: true,
     }).start(cb);
 
     this.state.pan.setOffset({

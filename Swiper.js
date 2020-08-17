@@ -364,7 +364,6 @@ class Swiper extends Component {
       friction: this.props.topCardResetAnimationFriction,
       tension: this.props.topCardResetAnimationTension,
       useNativeDriver: true,
-      useNativeDriver: true,
     }).start(cb);
 
     this.state.pan.setOffset({
@@ -440,9 +439,8 @@ class Swiper extends Component {
         x: x * SWIPE_MULTIPLY_FACTOR,
         y: y * SWIPE_MULTIPLY_FACTOR,
       },
+      useNativeDriver: true,
       duration: this.props.swipeAnimationDuration,
-      useNativeDriver: true,
-      useNativeDriver: true,
     }).start(() => {
       this.setSwipeBackCardXY(x, y, () => {
         mustDecrementCardIndex = mustDecrementCardIndex

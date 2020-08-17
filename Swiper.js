@@ -536,7 +536,7 @@ class Swiper extends Component {
 
     this.onSwipedCallbacks(onSwiped);
 
-    let allSwipedCheck = () => newCardIndex === this.state.cards.length;
+    let allSwipedCheck = () => newCardIndex === this.props.cards.length;
 
     if (allSwipedCheck()) {
       if (!infinite) {

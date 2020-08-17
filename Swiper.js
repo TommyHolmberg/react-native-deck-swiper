@@ -476,13 +476,11 @@ class Swiper extends Component {
           toValue: 0,
           friction: this.props.stackAnimationFriction,
           tension: this.props.stackAnimationTension,
-          useNativeDriver: true,
         }),
         Animated.spring(this.state.previousCardY, {
           toValue: 0,
           friction: this.props.stackAnimationFriction,
           tension: this.props.stackAnimationTension,
-          useNativeDriver: true,
         }),
       ],
       { useNativeDriver: true }
@@ -510,13 +508,11 @@ class Swiper extends Component {
               toValue: newSeparation,
               friction: this.props.stackAnimationFriction,
               tension: this.props.stackAnimationTension,
-              useNativeDriver: true,
             }),
             Animated.spring(this.state[`stackScale${stackSize}`], {
               toValue: newScale,
               friction: this.props.stackAnimationFriction,
               tension: this.props.stackAnimationTension,
-              useNativeDriver: true,
             }),
           ],
           { useNativeDriver: true }

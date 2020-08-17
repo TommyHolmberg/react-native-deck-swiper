@@ -470,20 +470,23 @@ class Swiper extends Component {
     const { previousCardX, previousCardY } = this.state;
     previousCardX.setValue(x * SWIPE_MULTIPLY_FACTOR);
     previousCardY.setValue(y * SWIPE_MULTIPLY_FACTOR);
-    Animated.parallel([
-      Animated.spring(this.state.previousCardX, {
-        toValue: 0,
-        friction: this.props.stackAnimationFriction,
-        tension: this.props.stackAnimationTension,
-        useNativeDriver: true,
-      }),
-      Animated.spring(this.state.previousCardY, {
-        toValue: 0,
-        friction: this.props.stackAnimationFriction,
-        tension: this.props.stackAnimationTension,
-        useNativeDriver: true,
-      }),
-    ]).start(() => {
+    Animated.parallel(
+      [
+        Animated.spring(this.state.previousCardX, {
+          toValue: 0,
+          friction: this.props.stackAnimationFriction,
+          tension: this.props.stackAnimationTension,
+          useNativeDriver: true,
+        }),
+        Animated.spring(this.state.previousCardY, {
+          toValue: 0,
+          friction: this.props.stackAnimationFriction,
+          tension: this.props.stackAnimationTension,
+          useNativeDriver: true,
+        }),
+      ],
+      { useNativeDriver: true }
+    ).start(() => {
       this.setState({ isSwipingBack: false });
       this.decrementCardIndex(cb);
     });
@@ -501,20 +504,23 @@ class Swiper extends Component {
       ) {
         const newSeparation = this.props.stackSeparation * (stackSize - 1);
         const newScale = (100 - this.props.stackScale * (stackSize - 1)) * 0.01;
-        Animated.parallel([
-          Animated.spring(this.state[`stackPosition${stackSize}`], {
-            toValue: newSeparation,
-            friction: this.props.stackAnimationFriction,
-            tension: this.props.stackAnimationTension,
-            useNativeDriver: true,
-          }),
-          Animated.spring(this.state[`stackScale${stackSize}`], {
-            toValue: newScale,
-            friction: this.props.stackAnimationFriction,
-            tension: this.props.stackAnimationTension,
-            useNativeDriver: true,
-          }),
-        ]).start();
+        Animated.parallel(
+          [
+            Animated.spring(this.state[`stackPosition${stackSize}`], {
+              toValue: newSeparation,
+              friction: this.props.stackAnimationFriction,
+              tension: this.props.stackAnimationTension,
+              useNativeDriver: true,
+            }),
+            Animated.spring(this.state[`stackScale${stackSize}`], {
+              toValue: newScale,
+              friction: this.props.stackAnimationFriction,
+              tension: this.props.stackAnimationTension,
+              useNativeDriver: true,
+            }),
+          ],
+          { useNativeDriver: true }
+        ).start();
       }
 
       if (index === cards.length - 1) {
